@@ -67,7 +67,7 @@ The script is idempotent — it checks current values before writing and only ma
 Run in an elevated (Administrator) PowerShell:
 
 ```powershell
-.\Disable-USBPowerManagement.ps1
+powershell -ExecutionPolicy ByPass .\Disable-USBPowerManagement.ps1
 ```
 
 ### Persistent (Survives Windows Update)
@@ -75,7 +75,7 @@ Run in an elevated (Administrator) PowerShell:
 Windows Update can silently re-enable these power settings. To guard against that, install a scheduled task that re-applies the changes at every logon:
 
 ```powershell
-.\Install-ScheduledTask.ps1
+powershell -ExecutionPolicy ByPass .\Install-ScheduledTask.ps1
 ```
 
 This creates a scheduled task called "Disable USB Power Management" that:
